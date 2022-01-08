@@ -1,0 +1,701 @@
+{
+  "contractName": "BikeModel",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/bike/BikeModel.sol\":\"BikeModel\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/bike/BikeModel.sol\":{\"keccak256\":\"0xdb6bd5e053118cda0054bcb326ba22d266f001b0f46d1dea1467bb714e8a412a\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://531a64cdbdb30a5c7811202c04f6657cfa2cffca25a23f4175a6b051428f8261\",\"dweb:/ipfs/QmPrf8nc6s7ZkqsSJvxPexMy61nECBoBpfukP2Ev6s94Lp\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212205aae105691ce802d01390e411733e47307e1d6ea90f301472d482beb7dc701ab64736f6c634300080a0033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212205aae105691ce802d01390e411733e47307e1d6ea90f301472d482beb7dc701ab64736f6c634300080a0033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "72:368:5:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "72:368:5:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.0 <0.9.0;\r\n\r\ncontract BikeModel {\r\n    enum StatusBikeEnum {NEW, USED,FOR_SALE, STOLEN, BLOCKED, ENDED}\r\n    struct BikeModelStruct {\r\n            uint256 CreateDate;\r\n            uint256 EndDate;\r\n            uint256 WeiValue;\r\n            StatusBikeEnum Status;\r\n            uint8 TypeId;\r\n            uint8 ColorId;\r\n            string Type;\r\n            string Color;\r\n    }\r\n}\r\n",
+  "sourcePath": "/mnt/c/Users/ptars/Learn/Blockchain/Consensys/Bootcamp2021/Final Project/code/ptarso.bike.factory/contracts/bike/BikeModel.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/bike/BikeModel.sol",
+    "exportedSymbols": {
+      "BikeModel": [
+        630
+      ]
+    },
+    "id": 631,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 604,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:31:5"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "BikeModel",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 630,
+        "linearizedBaseContracts": [
+          630
+        ],
+        "name": "BikeModel",
+        "nameLocation": "81:9:5",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "BikeModel.StatusBikeEnum",
+            "id": 611,
+            "members": [
+              {
+                "id": 605,
+                "name": "NEW",
+                "nameLocation": "119:3:5",
+                "nodeType": "EnumValue",
+                "src": "119:3:5"
+              },
+              {
+                "id": 606,
+                "name": "USED",
+                "nameLocation": "124:4:5",
+                "nodeType": "EnumValue",
+                "src": "124:4:5"
+              },
+              {
+                "id": 607,
+                "name": "FOR_SALE",
+                "nameLocation": "129:8:5",
+                "nodeType": "EnumValue",
+                "src": "129:8:5"
+              },
+              {
+                "id": 608,
+                "name": "STOLEN",
+                "nameLocation": "139:6:5",
+                "nodeType": "EnumValue",
+                "src": "139:6:5"
+              },
+              {
+                "id": 609,
+                "name": "BLOCKED",
+                "nameLocation": "147:7:5",
+                "nodeType": "EnumValue",
+                "src": "147:7:5"
+              },
+              {
+                "id": 610,
+                "name": "ENDED",
+                "nameLocation": "156:5:5",
+                "nodeType": "EnumValue",
+                "src": "156:5:5"
+              }
+            ],
+            "name": "StatusBikeEnum",
+            "nameLocation": "103:14:5",
+            "nodeType": "EnumDefinition",
+            "src": "98:64:5"
+          },
+          {
+            "canonicalName": "BikeModel.BikeModelStruct",
+            "id": 629,
+            "members": [
+              {
+                "constant": false,
+                "id": 613,
+                "mutability": "mutable",
+                "name": "CreateDate",
+                "nameLocation": "214:10:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "206:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 612,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "206:7:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 615,
+                "mutability": "mutable",
+                "name": "EndDate",
+                "nameLocation": "247:7:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "239:15:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 614,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "239:7:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 617,
+                "mutability": "mutable",
+                "name": "WeiValue",
+                "nameLocation": "277:8:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "269:16:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 616,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "269:7:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 620,
+                "mutability": "mutable",
+                "name": "Status",
+                "nameLocation": "315:6:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "300:21:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_StatusBikeEnum_$611",
+                  "typeString": "enum BikeModel.StatusBikeEnum"
+                },
+                "typeName": {
+                  "id": 619,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 618,
+                    "name": "StatusBikeEnum",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 611,
+                    "src": "300:14:5"
+                  },
+                  "referencedDeclaration": 611,
+                  "src": "300:14:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_StatusBikeEnum_$611",
+                    "typeString": "enum BikeModel.StatusBikeEnum"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 622,
+                "mutability": "mutable",
+                "name": "TypeId",
+                "nameLocation": "342:6:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "336:12:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 621,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "336:5:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 624,
+                "mutability": "mutable",
+                "name": "ColorId",
+                "nameLocation": "369:7:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "363:13:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 623,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "363:5:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 626,
+                "mutability": "mutable",
+                "name": "Type",
+                "nameLocation": "398:4:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "391:11:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 625,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "391:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 628,
+                "mutability": "mutable",
+                "name": "Color",
+                "nameLocation": "424:5:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "417:12:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 627,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "417:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "BikeModelStruct",
+            "nameLocation": "175:15:5",
+            "nodeType": "StructDefinition",
+            "scope": 630,
+            "src": "168:269:5",
+            "visibility": "public"
+          }
+        ],
+        "scope": 631,
+        "src": "72:368:5",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:405:5"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/bike/BikeModel.sol",
+    "exportedSymbols": {
+      "BikeModel": [
+        630
+      ]
+    },
+    "id": 631,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 604,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:31:5"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "BikeModel",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 630,
+        "linearizedBaseContracts": [
+          630
+        ],
+        "name": "BikeModel",
+        "nameLocation": "81:9:5",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "BikeModel.StatusBikeEnum",
+            "id": 611,
+            "members": [
+              {
+                "id": 605,
+                "name": "NEW",
+                "nameLocation": "119:3:5",
+                "nodeType": "EnumValue",
+                "src": "119:3:5"
+              },
+              {
+                "id": 606,
+                "name": "USED",
+                "nameLocation": "124:4:5",
+                "nodeType": "EnumValue",
+                "src": "124:4:5"
+              },
+              {
+                "id": 607,
+                "name": "FOR_SALE",
+                "nameLocation": "129:8:5",
+                "nodeType": "EnumValue",
+                "src": "129:8:5"
+              },
+              {
+                "id": 608,
+                "name": "STOLEN",
+                "nameLocation": "139:6:5",
+                "nodeType": "EnumValue",
+                "src": "139:6:5"
+              },
+              {
+                "id": 609,
+                "name": "BLOCKED",
+                "nameLocation": "147:7:5",
+                "nodeType": "EnumValue",
+                "src": "147:7:5"
+              },
+              {
+                "id": 610,
+                "name": "ENDED",
+                "nameLocation": "156:5:5",
+                "nodeType": "EnumValue",
+                "src": "156:5:5"
+              }
+            ],
+            "name": "StatusBikeEnum",
+            "nameLocation": "103:14:5",
+            "nodeType": "EnumDefinition",
+            "src": "98:64:5"
+          },
+          {
+            "canonicalName": "BikeModel.BikeModelStruct",
+            "id": 629,
+            "members": [
+              {
+                "constant": false,
+                "id": 613,
+                "mutability": "mutable",
+                "name": "CreateDate",
+                "nameLocation": "214:10:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "206:18:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 612,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "206:7:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 615,
+                "mutability": "mutable",
+                "name": "EndDate",
+                "nameLocation": "247:7:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "239:15:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 614,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "239:7:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 617,
+                "mutability": "mutable",
+                "name": "WeiValue",
+                "nameLocation": "277:8:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "269:16:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 616,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "269:7:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 620,
+                "mutability": "mutable",
+                "name": "Status",
+                "nameLocation": "315:6:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "300:21:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_StatusBikeEnum_$611",
+                  "typeString": "enum BikeModel.StatusBikeEnum"
+                },
+                "typeName": {
+                  "id": 619,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 618,
+                    "name": "StatusBikeEnum",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 611,
+                    "src": "300:14:5"
+                  },
+                  "referencedDeclaration": 611,
+                  "src": "300:14:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_StatusBikeEnum_$611",
+                    "typeString": "enum BikeModel.StatusBikeEnum"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 622,
+                "mutability": "mutable",
+                "name": "TypeId",
+                "nameLocation": "342:6:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "336:12:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 621,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "336:5:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 624,
+                "mutability": "mutable",
+                "name": "ColorId",
+                "nameLocation": "369:7:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "363:13:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 623,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "363:5:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 626,
+                "mutability": "mutable",
+                "name": "Type",
+                "nameLocation": "398:4:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "391:11:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 625,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "391:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 628,
+                "mutability": "mutable",
+                "name": "Color",
+                "nameLocation": "424:5:5",
+                "nodeType": "VariableDeclaration",
+                "scope": 629,
+                "src": "417:12:5",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 627,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "417:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "BikeModelStruct",
+            "nameLocation": "175:15:5",
+            "nodeType": "StructDefinition",
+            "scope": 630,
+            "src": "168:269:5",
+            "visibility": "public"
+          }
+        ],
+        "scope": 631,
+        "src": "72:368:5",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:405:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-01-08T17:47:39.119Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

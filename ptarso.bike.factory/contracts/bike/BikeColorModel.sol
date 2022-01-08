@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
 
+import "../ownership/Ownable.sol";
+
 contract BikeColorModel is Ownable {
     event AddedBikeColor(uint indexed _bikeColor, string color);
     
@@ -18,10 +20,6 @@ contract BikeColorModel is Ownable {
         emit AddedBikeColor(bikeColorArray.length -1, color);
         return bikeColorArray.length -1;
     }
-
-    // function getLastColorId() public view returns(uint last){
-    //     return bikeColorArray.length;
-    // }
 
     function getColorById(uint id) public view returns (string memory name){
         return bikeColorArray[id];

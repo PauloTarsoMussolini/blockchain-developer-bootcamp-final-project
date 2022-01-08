@@ -1,0 +1,243 @@
+{
+  "contractName": "CompanyTypeModel",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/company/CompanyTypeModel.sol\":\"CompanyTypeModel\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/company/CompanyTypeModel.sol\":{\"keccak256\":\"0x0be91c33ad01b865f2b2b5106d50542af6162c7f88eb8f533cdfeef49d17a9ca\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://143db1dac779df9f6add20343cbc3021057f85e234fb9b333f7032c5e5e09a4a\",\"dweb:/ipfs/QmYDxyiy7s1f6Gj73aehG3TJxteA5nAs4GTBqTQoq8zkF8\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220633aa1cf4b24207c8917e03585655a76035668a19ec56d1688a737c6ee0e24b864736f6c634300080a0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220633aa1cf4b24207c8917e03585655a76035668a19ec56d1688a737c6ee0e24b864736f6c634300080a0033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "72:115:9:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "72:115:9:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.0 <0.9.0;\r\n\r\ncontract CompanyTypeModel {\r\n    struct CompanyTypeStruct {\r\n        mapping(uint => string) companyType;\r\n    }\r\n}",
+  "sourcePath": "/mnt/c/Users/ptars/Learn/Blockchain/Consensys/Bootcamp2021/Final Project/code/ptarso.bike.factory/contracts/company/CompanyTypeModel.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/company/CompanyTypeModel.sol",
+    "exportedSymbols": {
+      "CompanyTypeModel": [
+        1448
+      ]
+    },
+    "id": 1449,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1442,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:31:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "CompanyTypeModel",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1448,
+        "linearizedBaseContracts": [
+          1448
+        ],
+        "name": "CompanyTypeModel",
+        "nameLocation": "81:16:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "CompanyTypeModel.CompanyTypeStruct",
+            "id": 1447,
+            "members": [
+              {
+                "constant": false,
+                "id": 1446,
+                "mutability": "mutable",
+                "name": "companyType",
+                "nameLocation": "165:11:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 1447,
+                "src": "141:35:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+                  "typeString": "mapping(uint256 => string)"
+                },
+                "typeName": {
+                  "id": 1445,
+                  "keyType": {
+                    "id": 1443,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "149:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "141:23:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+                    "typeString": "mapping(uint256 => string)"
+                  },
+                  "valueType": {
+                    "id": 1444,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "157:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "CompanyTypeStruct",
+            "nameLocation": "112:17:9",
+            "nodeType": "StructDefinition",
+            "scope": 1448,
+            "src": "105:79:9",
+            "visibility": "public"
+          }
+        ],
+        "scope": 1449,
+        "src": "72:115:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:150:9"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/company/CompanyTypeModel.sol",
+    "exportedSymbols": {
+      "CompanyTypeModel": [
+        1448
+      ]
+    },
+    "id": 1449,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1442,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:31:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "CompanyTypeModel",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1448,
+        "linearizedBaseContracts": [
+          1448
+        ],
+        "name": "CompanyTypeModel",
+        "nameLocation": "81:16:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "CompanyTypeModel.CompanyTypeStruct",
+            "id": 1447,
+            "members": [
+              {
+                "constant": false,
+                "id": 1446,
+                "mutability": "mutable",
+                "name": "companyType",
+                "nameLocation": "165:11:9",
+                "nodeType": "VariableDeclaration",
+                "scope": 1447,
+                "src": "141:35:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+                  "typeString": "mapping(uint256 => string)"
+                },
+                "typeName": {
+                  "id": 1445,
+                  "keyType": {
+                    "id": 1443,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "149:4:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "141:23:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+                    "typeString": "mapping(uint256 => string)"
+                  },
+                  "valueType": {
+                    "id": 1444,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "157:6:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "CompanyTypeStruct",
+            "nameLocation": "112:17:9",
+            "nodeType": "StructDefinition",
+            "scope": 1448,
+            "src": "105:79:9",
+            "visibility": "public"
+          }
+        ],
+        "scope": 1449,
+        "src": "72:115:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:150:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-01-08T16:55:30.410Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

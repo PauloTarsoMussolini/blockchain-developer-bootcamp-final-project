@@ -1,9 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
 
-import './BikeTypeModel.sol';
-import '../enum/BikeStatusEnum.sol';
-import './ColorModel.sol';
 contract BikeModel {
     enum StatusBikeEnum {NEW, USED,FOR_SALE, STOLEN, BLOCKED, ENDED}
     struct BikeModelStruct {
