@@ -17,10 +17,6 @@ contract BikeTypeModel is Ownable {
         return bikeTypeArray.length;
     }
 
-    // function getLastTypeId() public view returns(uint last){
-    //     return bikeTypeArray.length;
-    // }
-
     function getTypeById(uint id) public view returns (string memory name){
         return bikeTypeArray[id];
     }

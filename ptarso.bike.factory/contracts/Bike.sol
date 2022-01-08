@@ -1,17 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
 
-// import "./access/roles/AdminRole.sol";
 import "./ownership/Ownable.sol";
 import "./bike/BikeModel.sol";
 
 contract Bike is 
             BikeModel
-                ,Ownable
-            //    AdminRole
-
-                //  ,BikeTypeModel
-                //  BikeColorModel 
+            ,Ownable
                  {
     BikeModelStruct private _bike;
     event BikeStatusUpdated(address bike, StatusBikeEnum status);
@@ -24,7 +19,7 @@ contract Bike is
     }
 
     function getBike() public view returns (BikeModelStruct memory bike) {
-        return _bike; // bikeViewModelStruct
+        return _bike; 
     }
 
     function setBikeStatus(StatusBikeEnum status, uint weiValue) 

@@ -2,8 +2,6 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 import "./access/roles/AdminRole.sol";
-// import "./ownership/Ownable.sol";
-// import "./lifecycle/Pausable.sol";
 import "./bike/BikeModel.sol";
 import "./Bike.sol";
 import "./bike/BikeTypeModel.sol";
@@ -12,10 +10,7 @@ import "./company/CompanyModel.sol";
 
 contract BikeFactory is 
            AdminRole
-            // ,Ownable
-            // Pausable,
             ,BikeModel
-            // ,Bike
             ,BikeTypeModel
             ,BikeColorModel
             ,CompanyModel 
@@ -48,7 +43,6 @@ contract BikeFactory is
     );
 
     constructor(){
-
         addColor("White");
         addColor("Yellow");
         addColor("Blue");
@@ -60,7 +54,6 @@ contract BikeFactory is
         addType("Montain");
         addType("Electric");
         addType("Hybrid");
-
     }
 
     function 
@@ -68,13 +61,11 @@ contract BikeFactory is
     public 
         onlyOwner
     {
-        // require dont exist
-     //   CompanyModelStruct _companyMap[companyAddress] = companyModel;
-     require(companyAddress != address(0), 'Create Company: account address is not valid');
-     require(
-         !_companyMap[companyAddress].Exist,
-         "Company address already exists"
-         );
+        require(companyAddress != address(0), 'Create Company: account address is not valid');
+        require(
+            !_companyMap[companyAddress].Exist,
+            "Company address already exists"
+            );
         CompanyModelStruct storage newCompany = _companyMap[companyAddress];
         newCompany.Name = name;
         newCompany.Status = StatusCompanyEnum.ACTIVE;
@@ -149,7 +140,6 @@ contract BikeFactory is
             "Only Owner's Bike can sell Bike"
             );
         _bikeForSell.push(_bikeInstanceMap[id].instanceAddress);
-       // _bikeForSellCounter++;
         return getBase(_bikeInstanceMap[id].instanceAddress).setBikeStatus(StatusBikeEnum.FOR_SALE, weiValue);
 
     }
@@ -174,7 +164,6 @@ contract BikeFactory is
     }
 
     function buyBike(uint id) public payable returns (bool result){
-     //   require(to != address(0), 'transferBike: account address to is not valid');
         require(
             getBase(_bikeInstanceMap[id].instanceAddress).getBike().Status == StatusBikeEnum.FOR_SALE,
             
@@ -192,12 +181,11 @@ contract BikeFactory is
             "buyBike: Insuficient or wrong value"
         );
 
-        (bool sent, bytes memory data) = _to.call{value: msg.value}("");
+        (bool sent, ) = _to.call{value: msg.value}("");
         require(sent, "Failed to send Ether");
         
         address from = _bikeInstanceMap[id].instanceAddressOwner;
         _bikeInstanceMap[id].instanceAddressOwner = msg.sender;
-
 
         for (uint i = 0; i < _bikeForSell.length; i++){
             if (_bikeForSell[i] == _bikeInstanceMap[id].instanceAddress) {
@@ -205,7 +193,6 @@ contract BikeFactory is
                     _bikeForSell[j] = _bikeForSell[j+1];
                 }
                 _bikeForSell.pop();
-
             }
         }
 

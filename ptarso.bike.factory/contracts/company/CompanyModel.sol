@@ -9,5 +9,4 @@ contract CompanyModel {
         bool Exist;
         address Owner;
     }
-    
 }

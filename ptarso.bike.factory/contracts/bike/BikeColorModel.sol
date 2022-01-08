@@ -8,7 +8,7 @@ contract BikeColorModel is Ownable {
     
     string[] private bikeColorArray;
     constructor(){
-        bikeColorArray.push('Undefined');
+        bikeColorArray.push('None');
     }
     
     function addColor(string memory color) public onlyOwner returns (uint id){
