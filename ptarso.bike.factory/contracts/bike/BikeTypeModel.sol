@@ -8,7 +8,7 @@ contract BikeTypeModel is Ownable {
 
     string[] private bikeTypeArray;
     constructor(){
-        bikeTypeArray.push('Undefined');
+        bikeTypeArray.push('None');
     }
 
     function addType(string memory bikeType) public onlyOwner returns (uint id){
@@ -23,5 +23,9 @@ contract BikeTypeModel is Ownable {
 
     function hasType(uint bikeType) public view returns (bool has){
         return (bikeTypeArray.length > bikeType && bikeType > 0);
+    }
+
+    function getBikeTypeList() public view returns (string[] memory typeList){
+        return bikeTypeArray;
     }
 }

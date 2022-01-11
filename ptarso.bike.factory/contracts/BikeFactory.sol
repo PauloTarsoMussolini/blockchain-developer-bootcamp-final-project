@@ -8,13 +8,13 @@ import "./bike/BikeTypeModel.sol";
 import "./bike/BikeColorModel.sol";
 import "./company/CompanyModel.sol";
 
-contract BikeFactory is 
-           AdminRole
-            ,BikeModel
-            ,BikeTypeModel
-            ,BikeColorModel
-            ,CompanyModel 
-            {
+contract BikeFactory is
+AdminRole,
+
+            BikeModel,
+            BikeTypeModel,
+            BikeColorModel,
+            CompanyModel {
 
     struct BikeInstance {
         address instanceAddress;
@@ -27,8 +27,8 @@ contract BikeFactory is
     mapping(address => CompanyModelStruct) private _companyMap;
     address[] private _companyAddresses; 
 
-    address[] public _bikeForSell;
-    
+    address[] private _bikeForSell;
+
     event BikeGenerated(
         address indexed instancecAddress
     );
@@ -43,6 +43,7 @@ contract BikeFactory is
     );
 
     constructor(){
+
         addColor("White");
         addColor("Yellow");
         addColor("Blue");
@@ -56,16 +57,12 @@ contract BikeFactory is
         addType("Hybrid");
     }
 
-    function 
-        createCompany(address companyAddress, string memory name) 
-    public 
-        onlyOwner
-    {
-        require(companyAddress != address(0), 'Create Company: account address is not valid');
-        require(
-            !_companyMap[companyAddress].Exist,
-            "Company address already exists"
-            );
+    function createCompany(address companyAddress, string memory name) public onlyOwner{
+     require(companyAddress != address(0), 'Create Company: account address is not valid');
+     require(
+         !_companyMap[companyAddress].Exist,
+         "Company address already exists"
+         );
         CompanyModelStruct storage newCompany = _companyMap[companyAddress];
         newCompany.Name = name;
         newCompany.Status = StatusCompanyEnum.ACTIVE;
@@ -83,13 +80,23 @@ contract BikeFactory is
         return _companyMap[companyAddress];
     }
 
-    function getCompanyList() public view returns(CompanyModelStruct[] memory companyList){
-        CompanyModelStruct[] memory companyModelList = new CompanyModelStruct[](_companyAddresses.length);
+    function getCompanyList() 
+        public view 
+        returns(string[] memory, StatusCompanyEnum[] memory, address[] memory){
+
+        string[] memory names = new string[](_companyAddresses.length);
+        StatusCompanyEnum[] memory status = new StatusCompanyEnum[](_companyAddresses.length);
+        address[] memory owners = new address[](_companyAddresses.length);
+
+        //CompanyModelStruct[] memory companyModelList = new CompanyModelStruct[](_companyAddresses.length);
 
         for (uint i = 0; i < _companyAddresses.length; i++){
-            companyModelList[i] = _companyMap[_companyAddresses[i]];
+             CompanyModelStruct storage company = _companyMap[_companyAddresses[i]];
+         names[i] = company.Name;
+         status[i] = company.Status;
+         owners[i] = company.Owner;
         }
-        return companyModelList;
+        return (names, status, owners);
     }
 
     function generateBike(BikeModelStruct memory bikeModel) 
@@ -103,8 +110,8 @@ contract BikeFactory is
             "Company address not exists"
          );
 
-        bikeModel.Type = getTypeById(bikeModel.TypeId);
-        bikeModel.Color = getColorById(bikeModel.ColorId);
+        // bikeModel.Type = getTypeById(bikeModel.TypeId);
+        // bikeModel.Color = getColorById(bikeModel.ColorId);
 
         Bike instance = new Bike(
             bikeModel
@@ -125,13 +132,32 @@ contract BikeFactory is
       return getBase(_bikeInstanceMap[id].instanceAddress).getBike();
     }
 
-    function getBikeList() public view returns (BikeModelStruct[] memory bikeList){
-        BikeModelStruct[] memory bikeModelList = new BikeModelStruct[](_bikeInstanceMapCounter);
-
-        for (uint i = 1; i <= _bikeInstanceMapCounter; i++){
-            bikeModelList[i-1] = getBase(_bikeInstanceMap[i].instanceAddress).getBike();
+    function getBikeList() public view 
+    returns (
+        uint256[] memory id,
+        address[] memory owner,
+        string[] memory bikeType,
+        string[] memory bikeColor,
+        StatusBikeEnum[] memory bikeStatus,
+        uint256[] memory WeiValue)
+        {
+        uint256[] memory ids = new uint256[](_bikeInstanceMapCounter);
+        address[] memory owners = new address[](_bikeInstanceMapCounter);
+        string[] memory types = new string[](_bikeInstanceMapCounter);
+        string[] memory colors = new string[](_bikeInstanceMapCounter);
+        StatusBikeEnum[] memory status = new StatusBikeEnum[](_bikeInstanceMapCounter);
+        uint256[] memory weiValues = new uint256[](_bikeInstanceMapCounter);
+        
+        for (uint i = 0; i < _bikeInstanceMapCounter; i++){
+            BikeModelStruct memory bike = getBase(_bikeInstanceMap[i+1].instanceAddress).getBike();
+            ids[i] = i+1;
+            types[i] = getTypeById(bike.TypeId);
+            status[i] = bike.Status;
+            colors[i] = getColorById(bike.ColorId);
+            weiValues[i] = bike.WeiValue;
+            owners[i] = _bikeInstanceMap[i+1].instanceAddressOwner;
         }
-        return bikeModelList;
+        return (ids, owners, types, colors, status, weiValues);
     }
 
     function putBikeToSell(uint id, uint weiValue) public returns (bool result){
@@ -167,7 +193,7 @@ contract BikeFactory is
         require(
             getBase(_bikeInstanceMap[id].instanceAddress).getBike().Status == StatusBikeEnum.FOR_SALE,
             
-            "buyBike: Bike not for Sell"
+            "Bike not for Sell"
             
         );
         address _to = _bikeInstanceMap[id].instanceAddressOwner; 
@@ -178,10 +204,10 @@ contract BikeFactory is
 
         require(
             msg.value == getBase(_bikeInstanceMap[id].instanceAddress).getBike().WeiValue,
-            "buyBike: Insuficient or wrong value"
+            "Insuficient or wrong value"
         );
 
-        (bool sent, ) = _to.call{value: msg.value}("");
+        (bool sent, ) = _to.call{ value: msg.value }("");
         require(sent, "Failed to send Ether");
         
         address from = _bikeInstanceMap[id].instanceAddressOwner;
@@ -195,7 +221,6 @@ contract BikeFactory is
                 _bikeForSell.pop();
             }
         }
-
         emit TransferedBike(
             _bikeInstanceMap[id].instanceAddress,
             from,
@@ -204,7 +229,7 @@ contract BikeFactory is
         return getBase(_bikeInstanceMap[id].instanceAddress).transferBike();
     }
 
-    function getBase(address _baseAddress) public pure returns(Bike){
+    function getBase(address _baseAddress) internal pure returns(Bike){
         Bike baseContract = Bike(_baseAddress);
         return baseContract;
     }

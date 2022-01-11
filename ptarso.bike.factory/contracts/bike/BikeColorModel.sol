@@ -37,4 +37,7 @@ contract BikeColorModel is Ownable {
         }
         return false;
     }
+    function getBikeColorList() public view returns (string[] memory colorList){
+        return bikeColorArray;
+    }
 }
