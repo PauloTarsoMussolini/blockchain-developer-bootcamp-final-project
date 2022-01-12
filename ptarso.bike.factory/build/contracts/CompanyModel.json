@@ -1,29 +1,29 @@
 {
   "contractName": "CompanyModel",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/company/CompanyModel.sol\":\"CompanyModel\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/company/CompanyModel.sol\":{\"keccak256\":\"0x1321775b57706c602201c28c9b158cf65f6c8d5703b6c90c1038605dfbf91b1c\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://b4014637a18d2dd0a4ec6cb27630fbbb506ce601c67fe2f70003363b2e0a3b47\",\"dweb:/ipfs/QmZZ1Zj9rRPPX4KWMy7D5jEpAXwKTJifpgUGVsQXFYQveo\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220b73c391a684fe04079b45144879aead3fa504ab64022d2674fa056cf7541900464736f6c634300080a0033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220b73c391a684fe04079b45144879aead3fa504ab64022d2674fa056cf7541900464736f6c634300080a0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/company/CompanyModel.sol\":\"CompanyModel\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/company/CompanyModel.sol\":{\"keccak256\":\"0xffb2a6aa3dee999538583bc3ee229679ab95828bf91ffb082db142aba4f13500\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://ec3178712a4690c8d3e35e91a1cf5657d543826d5eaf268f4fa8e6ae1d815787\",\"dweb:/ipfs/QmY6KTEGP5xBKrAcxSfrRag8UGnQXRKKf1rvcNJDQJUaoo\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207a9d3e6d7b58d269837c0bdf2ee0e2ec57d4f15f16b547c5e32db0ba7652aa6d64736f6c634300080a0033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207a9d3e6d7b58d269837c0bdf2ee0e2ec57d4f15f16b547c5e32db0ba7652aa6d64736f6c634300080a0033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "69:220:8:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "69:220:8:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: GPL-3.0\npragma solidity >=0.8.0 <0.9.0;\n\ncontract CompanyModel {\n    enum StatusCompanyEnum {ACTIVE, INACTIVE, BLOCKED}\n    struct CompanyModelStruct{\n        string Name;\n        StatusCompanyEnum Status;\n        bool Exist;\n        address Owner;\n    }\n    \n}",
+  "sourceMap": "69:215:7:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "69:215:7:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\npragma solidity >=0.8.0 <0.9.0;\n\ncontract CompanyModel {\n    enum StatusCompanyEnum {ACTIVE, INACTIVE, BLOCKED}\n    struct CompanyModelStruct{\n        string Name;\n        StatusCompanyEnum Status;\n        bool Exist;\n        address Owner;\n    }\n}",
   "sourcePath": "/mnt/c/Users/ptars/Learn/Blockchain/Consensys/Bootcamp2021/Final Project/code/ptarso.bike.factory/contracts/company/CompanyModel.sol",
   "ast": {
     "absolutePath": "project:/contracts/company/CompanyModel.sol",
     "exportedSymbols": {
       "CompanyModel": [
-        1440
+        1399
       ]
     },
-    "id": 1441,
+    "id": 1400,
     "license": "GPL-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1425,
+        "id": 1384,
         "literals": [
           "solidity",
           ">=",
@@ -34,7 +34,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "36:31:8"
+        "src": "36:31:7"
       },
       {
         "abstract": false,
@@ -43,58 +43,58 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1440,
+        "id": 1399,
         "linearizedBaseContracts": [
-          1440
+          1399
         ],
         "name": "CompanyModel",
-        "nameLocation": "78:12:8",
+        "nameLocation": "78:12:7",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "CompanyModel.StatusCompanyEnum",
-            "id": 1429,
+            "id": 1388,
             "members": [
               {
-                "id": 1426,
+                "id": 1385,
                 "name": "ACTIVE",
-                "nameLocation": "121:6:8",
+                "nameLocation": "121:6:7",
                 "nodeType": "EnumValue",
-                "src": "121:6:8"
+                "src": "121:6:7"
               },
               {
-                "id": 1427,
+                "id": 1386,
                 "name": "INACTIVE",
-                "nameLocation": "129:8:8",
+                "nameLocation": "129:8:7",
                 "nodeType": "EnumValue",
-                "src": "129:8:8"
+                "src": "129:8:7"
               },
               {
-                "id": 1428,
+                "id": 1387,
                 "name": "BLOCKED",
-                "nameLocation": "139:7:8",
+                "nameLocation": "139:7:7",
                 "nodeType": "EnumValue",
-                "src": "139:7:8"
+                "src": "139:7:7"
               }
             ],
             "name": "StatusCompanyEnum",
-            "nameLocation": "102:17:8",
+            "nameLocation": "102:17:7",
             "nodeType": "EnumDefinition",
-            "src": "97:50:8"
+            "src": "97:50:7"
           },
           {
             "canonicalName": "CompanyModel.CompanyModelStruct",
-            "id": 1439,
+            "id": 1398,
             "members": [
               {
                 "constant": false,
-                "id": 1431,
+                "id": 1390,
                 "mutability": "mutable",
                 "name": "Name",
-                "nameLocation": "194:4:8",
+                "nameLocation": "194:4:7",
                 "nodeType": "VariableDeclaration",
-                "scope": 1439,
-                "src": "187:11:8",
+                "scope": 1398,
+                "src": "187:11:7",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -102,10 +102,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1430,
+                  "id": 1389,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "187:6:8",
+                  "src": "187:6:7",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -115,33 +115,33 @@
               },
               {
                 "constant": false,
-                "id": 1434,
+                "id": 1393,
                 "mutability": "mutable",
                 "name": "Status",
-                "nameLocation": "226:6:8",
+                "nameLocation": "226:6:7",
                 "nodeType": "VariableDeclaration",
-                "scope": 1439,
-                "src": "208:24:8",
+                "scope": 1398,
+                "src": "208:24:7",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_StatusCompanyEnum_$1429",
+                  "typeIdentifier": "t_enum$_StatusCompanyEnum_$1388",
                   "typeString": "enum CompanyModel.StatusCompanyEnum"
                 },
                 "typeName": {
-                  "id": 1433,
+                  "id": 1392,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1432,
+                    "id": 1391,
                     "name": "StatusCompanyEnum",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1429,
-                    "src": "208:17:8"
+                    "referencedDeclaration": 1388,
+                    "src": "208:17:7"
                   },
-                  "referencedDeclaration": 1429,
-                  "src": "208:17:8",
+                  "referencedDeclaration": 1388,
+                  "src": "208:17:7",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_StatusCompanyEnum_$1429",
+                    "typeIdentifier": "t_enum$_StatusCompanyEnum_$1388",
                     "typeString": "enum CompanyModel.StatusCompanyEnum"
                   }
                 },
@@ -149,13 +149,13 @@
               },
               {
                 "constant": false,
-                "id": 1436,
+                "id": 1395,
                 "mutability": "mutable",
                 "name": "Exist",
-                "nameLocation": "247:5:8",
+                "nameLocation": "247:5:7",
                 "nodeType": "VariableDeclaration",
-                "scope": 1439,
-                "src": "242:10:8",
+                "scope": 1398,
+                "src": "242:10:7",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -163,10 +163,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1435,
+                  "id": 1394,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "242:4:8",
+                  "src": "242:4:7",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -176,13 +176,13 @@
               },
               {
                 "constant": false,
-                "id": 1438,
+                "id": 1397,
                 "mutability": "mutable",
                 "name": "Owner",
-                "nameLocation": "270:5:8",
+                "nameLocation": "270:5:7",
                 "nodeType": "VariableDeclaration",
-                "scope": 1439,
-                "src": "262:13:8",
+                "scope": 1398,
+                "src": "262:13:7",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -190,10 +190,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1437,
+                  "id": 1396,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "262:7:8",
+                  "src": "262:7:7",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -204,33 +204,33 @@
               }
             ],
             "name": "CompanyModelStruct",
-            "nameLocation": "159:18:8",
+            "nameLocation": "159:18:7",
             "nodeType": "StructDefinition",
-            "scope": 1440,
-            "src": "152:130:8",
+            "scope": 1399,
+            "src": "152:130:7",
             "visibility": "public"
           }
         ],
-        "scope": 1441,
-        "src": "69:220:8",
+        "scope": 1400,
+        "src": "69:215:7",
         "usedErrors": []
       }
     ],
-    "src": "36:253:8"
+    "src": "36:248:7"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/company/CompanyModel.sol",
     "exportedSymbols": {
       "CompanyModel": [
-        1440
+        1399
       ]
     },
-    "id": 1441,
+    "id": 1400,
     "license": "GPL-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1425,
+        "id": 1384,
         "literals": [
           "solidity",
           ">=",
@@ -241,7 +241,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "36:31:8"
+        "src": "36:31:7"
       },
       {
         "abstract": false,
@@ -250,58 +250,58 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1440,
+        "id": 1399,
         "linearizedBaseContracts": [
-          1440
+          1399
         ],
         "name": "CompanyModel",
-        "nameLocation": "78:12:8",
+        "nameLocation": "78:12:7",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "CompanyModel.StatusCompanyEnum",
-            "id": 1429,
+            "id": 1388,
             "members": [
               {
-                "id": 1426,
+                "id": 1385,
                 "name": "ACTIVE",
-                "nameLocation": "121:6:8",
+                "nameLocation": "121:6:7",
                 "nodeType": "EnumValue",
-                "src": "121:6:8"
+                "src": "121:6:7"
               },
               {
-                "id": 1427,
+                "id": 1386,
                 "name": "INACTIVE",
-                "nameLocation": "129:8:8",
+                "nameLocation": "129:8:7",
                 "nodeType": "EnumValue",
-                "src": "129:8:8"
+                "src": "129:8:7"
               },
               {
-                "id": 1428,
+                "id": 1387,
                 "name": "BLOCKED",
-                "nameLocation": "139:7:8",
+                "nameLocation": "139:7:7",
                 "nodeType": "EnumValue",
-                "src": "139:7:8"
+                "src": "139:7:7"
               }
             ],
             "name": "StatusCompanyEnum",
-            "nameLocation": "102:17:8",
+            "nameLocation": "102:17:7",
             "nodeType": "EnumDefinition",
-            "src": "97:50:8"
+            "src": "97:50:7"
           },
           {
             "canonicalName": "CompanyModel.CompanyModelStruct",
-            "id": 1439,
+            "id": 1398,
             "members": [
               {
                 "constant": false,
-                "id": 1431,
+                "id": 1390,
                 "mutability": "mutable",
                 "name": "Name",
-                "nameLocation": "194:4:8",
+                "nameLocation": "194:4:7",
                 "nodeType": "VariableDeclaration",
-                "scope": 1439,
-                "src": "187:11:8",
+                "scope": 1398,
+                "src": "187:11:7",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -309,10 +309,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1430,
+                  "id": 1389,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "187:6:8",
+                  "src": "187:6:7",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -322,33 +322,33 @@
               },
               {
                 "constant": false,
-                "id": 1434,
+                "id": 1393,
                 "mutability": "mutable",
                 "name": "Status",
-                "nameLocation": "226:6:8",
+                "nameLocation": "226:6:7",
                 "nodeType": "VariableDeclaration",
-                "scope": 1439,
-                "src": "208:24:8",
+                "scope": 1398,
+                "src": "208:24:7",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_StatusCompanyEnum_$1429",
+                  "typeIdentifier": "t_enum$_StatusCompanyEnum_$1388",
                   "typeString": "enum CompanyModel.StatusCompanyEnum"
                 },
                 "typeName": {
-                  "id": 1433,
+                  "id": 1392,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 1432,
+                    "id": 1391,
                     "name": "StatusCompanyEnum",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 1429,
-                    "src": "208:17:8"
+                    "referencedDeclaration": 1388,
+                    "src": "208:17:7"
                   },
-                  "referencedDeclaration": 1429,
-                  "src": "208:17:8",
+                  "referencedDeclaration": 1388,
+                  "src": "208:17:7",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_StatusCompanyEnum_$1429",
+                    "typeIdentifier": "t_enum$_StatusCompanyEnum_$1388",
                     "typeString": "enum CompanyModel.StatusCompanyEnum"
                   }
                 },
@@ -356,13 +356,13 @@
               },
               {
                 "constant": false,
-                "id": 1436,
+                "id": 1395,
                 "mutability": "mutable",
                 "name": "Exist",
-                "nameLocation": "247:5:8",
+                "nameLocation": "247:5:7",
                 "nodeType": "VariableDeclaration",
-                "scope": 1439,
-                "src": "242:10:8",
+                "scope": 1398,
+                "src": "242:10:7",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -370,10 +370,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1435,
+                  "id": 1394,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "242:4:8",
+                  "src": "242:4:7",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -383,13 +383,13 @@
               },
               {
                 "constant": false,
-                "id": 1438,
+                "id": 1397,
                 "mutability": "mutable",
                 "name": "Owner",
-                "nameLocation": "270:5:8",
+                "nameLocation": "270:5:7",
                 "nodeType": "VariableDeclaration",
-                "scope": 1439,
-                "src": "262:13:8",
+                "scope": 1398,
+                "src": "262:13:7",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -397,10 +397,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1437,
+                  "id": 1396,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "262:7:8",
+                  "src": "262:7:7",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -411,19 +411,19 @@
               }
             ],
             "name": "CompanyModelStruct",
-            "nameLocation": "159:18:8",
+            "nameLocation": "159:18:7",
             "nodeType": "StructDefinition",
-            "scope": 1440,
-            "src": "152:130:8",
+            "scope": 1399,
+            "src": "152:130:7",
             "visibility": "public"
           }
         ],
-        "scope": 1441,
-        "src": "69:220:8",
+        "scope": 1400,
+        "src": "69:215:7",
         "usedErrors": []
       }
     ],
-    "src": "36:253:8"
+    "src": "36:248:7"
   },
   "compiler": {
     "name": "solc",
@@ -431,7 +431,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-01-08T16:55:30.404Z",
+  "updatedAt": "2022-01-09T20:26:02.446Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

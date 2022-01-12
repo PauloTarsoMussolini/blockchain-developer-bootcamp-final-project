@@ -102,6 +102,7 @@ AdminRole,
     function generateBike(BikeModelStruct memory bikeModel) 
     public
          onlyAdmin
+    returns(address  bikeAddress)
     {
         require(hasType(bikeModel.TypeId) == true, "Invalid Type!");
         require(hasColorId(bikeModel.ColorId) == true, "Invalid Color!");
@@ -124,6 +125,7 @@ AdminRole,
             msg.sender
         );
         emit BikeGenerated(instanceAddress);
+        return instanceAddress;
     }
 
     function getBikeInstance(uint id) public view returns 
@@ -132,7 +134,7 @@ AdminRole,
       return getBase(_bikeInstanceMap[id].instanceAddress).getBike();
     }
 
-    function getBikeList() public view 
+    function getBikeList(uint8 scope) public view 
     returns (
         uint256[] memory id,
         address[] memory owner,
@@ -141,23 +143,47 @@ AdminRole,
         StatusBikeEnum[] memory bikeStatus,
         uint256[] memory WeiValue)
         {
-        uint256[] memory ids = new uint256[](_bikeInstanceMapCounter);
-        address[] memory owners = new address[](_bikeInstanceMapCounter);
-        string[] memory types = new string[](_bikeInstanceMapCounter);
-        string[] memory colors = new string[](_bikeInstanceMapCounter);
-        StatusBikeEnum[] memory status = new StatusBikeEnum[](_bikeInstanceMapCounter);
-        uint256[] memory weiValues = new uint256[](_bikeInstanceMapCounter);
+            // 0 = Owner, 1 = All, 2 = For FOR_SALE
+       // uint  _bikeCounter = _bikeInstanceMapCounter; //(scope == 2 ? _bikeForSell.length : _bikeInstanceMapCounter );
+        uint256 _counterReturn; // = (scope == 2 ? _bikeForSell.length : _bikeInstanceMapCounter);
+
+        uint256[] memory ids = new uint256[](scope == 2 ? _bikeForSell.length : _bikeInstanceMapCounter);
+        address[] memory owners = new address[](scope == 2 ? _bikeForSell.length : _bikeInstanceMapCounter);
+        string[] memory types = new string[](scope == 2 ? _bikeForSell.length : _bikeInstanceMapCounter);
+        string[] memory colors = new string[](scope == 2 ? _bikeForSell.length : _bikeInstanceMapCounter);
+        StatusBikeEnum[] memory status = new StatusBikeEnum[](scope == 2 ? _bikeForSell.length : _bikeInstanceMapCounter);
+        uint256[] memory weiValues = new uint256[](scope == 2 ? _bikeForSell.length : _bikeInstanceMapCounter);
         
-        for (uint i = 0; i < _bikeInstanceMapCounter; i++){
-            BikeModelStruct memory bike = getBase(_bikeInstanceMap[i+1].instanceAddress).getBike();
-            ids[i] = i+1;
-            types[i] = getTypeById(bike.TypeId);
-            status[i] = bike.Status;
-            colors[i] = getColorById(bike.ColorId);
-            weiValues[i] = bike.WeiValue;
-            owners[i] = _bikeInstanceMap[i+1].instanceAddressOwner;
+        for (uint256 i = 0; i < _bikeInstanceMapCounter; i++){
+            
+            // All
+            if (scope == 1){
+                ids[i] = i+1;
+                BikeModelStruct memory bike = getBase(_bikeInstanceMap[i+1].instanceAddress).getBike();
+                types[i] = getTypeById(bike.TypeId);
+                status[i] = bike.Status;
+                colors[i] = getColorById(bike.ColorId);
+                weiValues[i] = bike.WeiValue;
+                owners[i] = _bikeInstanceMap[i+1].instanceAddressOwner;
+            }
+            else { // For Sale
+                
+              //  BikeModelStruct memory bike = getBase(_bikeForSell[i]).getBike();
+                BikeModelStruct memory bike = getBase(_bikeInstanceMap[i+1].instanceAddress).getBike();
+                if (bike.Status == StatusBikeEnum.FOR_SALE){
+                    ids[_counterReturn] = i+1;
+                    types[_counterReturn] = getTypeById(bike.TypeId);
+                    status[_counterReturn] = bike.Status;
+                    colors[_counterReturn] = getColorById(bike.ColorId);
+                    weiValues[_counterReturn] = bike.WeiValue;
+                    owners[_counterReturn] = _bikeInstanceMap[i+1].instanceAddressOwner;
+                    _counterReturn++;
+                }
+
+            }
         }
         return (ids, owners, types, colors, status, weiValues);
+        
     }
 
     function putBikeToSell(uint id, uint weiValue) public returns (bool result){
@@ -170,23 +196,63 @@ AdminRole,
 
     }
 
-    function getBikeToSellList() public view returns (BikeModelStruct[] memory bikeList){
-        BikeModelStruct[] memory bikeModelList = new BikeModelStruct[](_bikeForSell.length);
-        for (uint i = 0; i < _bikeForSell.length; i++){
-            bikeModelList[i] = getBase(_bikeForSell[i]).getBike();
-        }
-        return bikeModelList;
-    }
-    function GetBikeListByOwner() public view returns (BikeModelStruct[] memory bikeList)
-    {
-        BikeModelStruct[] memory bikeModelList = new BikeModelStruct[](_bikeInstanceMapCounter);
+    // function getBikeToSellList() public view returns (BikeModelStruct[] memory bikeList){
+    //     BikeModelStruct[] memory bikeModelList = new BikeModelStruct[](_bikeForSell.length);
+    //     for (uint i = 0; i < _bikeForSell.length; i++){
+    //         bikeModelList[i] = getBase(_bikeForSell[i]).getBike();
+    //     }
+    //     return bikeModelList;
+    // }
+    // function GetBikeListByOwner() public view returns (BikeModelStruct[] memory bikeList)
+    // {
+    //     BikeModelStruct[] memory bikeModelList = new BikeModelStruct[](_bikeInstanceMapCounter);
 
-        for (uint i = 1; i <= _bikeInstanceMapCounter; i++){
-            if (_bikeInstanceMap[i].instanceAddressOwner == msg.sender){
-                bikeModelList[i-1] = getBase(_bikeInstanceMap[i].instanceAddress).getBike();
-            }
+    //     for (uint i = 1; i <= _bikeInstanceMapCounter; i++){
+    //         if (_bikeInstanceMap[i].instanceAddressOwner == msg.sender){
+    //             bikeModelList[i-1] = getBase(_bikeInstanceMap[i].instanceAddress).getBike();
+    //         }
+    //     }
+    //     return bikeModelList;
+    // }
+function getBikeListByOwner() public view 
+    returns (
+            uint256[] memory id,
+            address[] memory owner,
+            string[] memory bikeType,
+            string[] memory bikeColor,
+            StatusBikeEnum[] memory bikeStatus,
+            uint256[] memory WeiValue)
+    {
+        uint ownerCounter;
+        for (uint i = 0; i < _bikeInstanceMapCounter; i++){
+                if (_bikeInstanceMap[i+1].instanceAddressOwner == msg.sender)
+                    ownerCounter++;
         }
-        return bikeModelList;
+        uint256[] memory ids = new uint256[](ownerCounter);
+        address[] memory owners = new address[](ownerCounter);
+        string[] memory types = new string[](ownerCounter);
+        string[] memory colors = new string[](ownerCounter);
+        StatusBikeEnum[] memory status = new StatusBikeEnum[](ownerCounter);
+        uint256[] memory weiValues = new uint256[](ownerCounter);
+
+           // BikeModelStruct[] memory bikeModelList = new BikeModelStruct[](_bikeInstanceMapCounter);
+            uint counter;
+            for (uint i = 0; i < _bikeInstanceMapCounter; i++){
+                if (_bikeInstanceMap[i+1].instanceAddressOwner == msg.sender){
+                   // bikeModelList[i] = getBase(_bikeInstanceMap[i+1].instanceAddress).getBike();
+                    BikeModelStruct memory bike = getBase(_bikeInstanceMap[i+1].instanceAddress).getBike();
+                    ids[counter] = i+1;
+                    types[counter] = getTypeById(bike.TypeId);
+                    status[counter] = bike.Status;
+                    colors[counter] = getColorById(bike.ColorId);
+                    weiValues[counter] = bike.WeiValue;
+                    owners[counter] = _bikeInstanceMap[i+1].instanceAddressOwner;
+                    counter++;
+                }
+            }
+
+            return (ids, owners, types, colors, status, weiValues);
+
     }
 
     function buyBike(uint id) public payable returns (bool result){

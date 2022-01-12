@@ -1,0 +1,44 @@
+<html lang="pt-BR">
+	<style>
+		.form-control{
+			height:17px;
+		}
+		#wndOperacao table tr td{
+			border:none !important;
+			height:15px !important;
+		}
+		#wndOperacao #frmCompany table td{
+			padding: 3px !important;
+		}		
+	</style>
+	<div id="wndOperacao" class="k-window-content" style="display:none">	
+		<section class="content" style="width:97%">
+				<div id="frmCompany">
+					<table style="width:100%; border:none">
+						<colgroup>
+							<col width="10%"/>
+							<col width="60%"/>
+						</colgroup>
+						<body>
+							<tr>
+								<td>
+									<label>Type</label>
+								</td>
+								<td >
+										<input type="text" id="Company" class="form-control" placeholder="Company Name" style="width:50%;"/>
+								</td>
+								<td>
+									<div class="col-sm-6">
+                                        <button id="btnCompanyConfirm" type="button" class="btn btn-primary animated fadeInLeft"  ><span class="glyphicon glyphicon-check"></span> Confirm</button>
+									</div>
+								</td>
+							</tr>
+						</body>
+					</table>
+				</div>
+		</section>
+	</div>
+	<script src="js/Company.js"></script>
+	<div id="grdBikeCompany" style="width: 75%; margin:auto; color: Black;">
+	</div>
+</html>

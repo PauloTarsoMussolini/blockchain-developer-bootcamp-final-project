@@ -1,0 +1,62 @@
+<html lang="pt-BR">
+	<style>
+		.form-control{
+			height:17px;
+		}
+		#wndOperacao table tr td{
+			border:none !important;
+			height:15px !important;
+		}
+		#wndOperacao #frmBike table td{
+			padding: 3px !important;
+		}		
+	</style>
+	<div id="wndOperacao" class="k-window-content" style="display:none">	
+		<section class="content" style="width:97%">
+				<div id="frmBike">
+					<table style="width:100%; border:none">
+						<colgroup>
+							<col width="10%"/>
+							<col width="30%"/>
+							<col width="10%"/>
+							<col width="30%"/>
+							<col width="15%"/>
+							<col width="20%"/>
+						</colgroup>
+						<body>
+							<tr>
+								<td>
+									<label>Type</label>
+								</td>
+								<td >
+									<input id="bikeType" style="width: 50%;" />
+								</td>
+								<td>
+									<label>Color</label>
+								</td>
+								<td >
+									<input id="bikeColor" style="width: 50%;" />
+								</td>
+								<td>
+									<label>Wei Value</label>
+								</td>
+								<td >
+									<input id="weiValue" type="number"  placeholder="value..." required="" />
+								</td>
+								<td>
+									<div class="col-sm-6">
+                                        <button id="btnBikeConfirm" type="button" class="btn btn-primary animated fadeInLeft"  ><span class="glyphicon glyphicon-check"></span> Confirm</button>
+									</div>
+								</td>
+							</tr>
+						</body>
+					</table>
+				</div>
+		</section>
+	</div>
+<script src="js/AdminBike.js"></script>
+	<div id="grdBike" style="width: 85%; margin:auto; color: Black;">
+	</div>
+
+
+</html>
