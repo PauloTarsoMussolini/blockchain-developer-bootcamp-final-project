@@ -1,5 +1,4 @@
-var bikeId;
-var weiValue;
+
 $(function() {
     fnAnima('My Bikes');
     $('#btnSellConfirm').unbind('click').bind("click", ( () => {
@@ -167,7 +166,6 @@ function getMyBikes(){
 function SellBike() {
         kendo.ui.progress($("#grdMyBike"), true);
         $("#messageTx").css("display","block");
-        alert(bikeId,weiValue);
         contract.methods.putBikeToSell(bikeId,$("#weiValue").val()).send( {from: account}).then( (tx) => { 
           ModalDialog("Sell Bike", "Bike set to Sell sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
         }).catch( ( error ) =>{

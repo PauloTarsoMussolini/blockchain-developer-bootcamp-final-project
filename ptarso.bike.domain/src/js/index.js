@@ -96,7 +96,20 @@ web3.eth.getAccounts(function(err, accs) {
     console.log('Account: ' + account);
     web3.eth.defaultAccount = account;
     console.log(contract);
+    console.log(accs.length);
 });
+
+// window.ethereum.on('accountsChanged', function (accounts) {
+//   alert("Change Account");
+//   // Time to reload your interface with accounts[0]!
+// })
+
+
+// web3.eth.on('accountsChanged', function (accounts) {
+//   // Time to reload your interface with accounts[0]!
+//   console.log(accounts[0])
+//  });
+
 
 
 
@@ -252,6 +265,7 @@ function fnGetBikeEnum(val){
 
 var bikeId;
 var weiValue;
+var bikeOwner;
 var forSale;
 
 function getbikes(){
@@ -279,7 +293,6 @@ function getbikes(){
         BikeStructs.push(Bike)
     }
       
-
     var dataSourceBike = new kendo.data.DataSource({
     data: BikeStructs,
     pageSize: 10,
@@ -306,9 +319,10 @@ function getbikes(){
               $('#wndOperacao').css("display",(forSale ? "block" : "none"));
               bikeId = rowData.Id;
               weiValue = rowData.WeiValue;
+              bikeOwner = rowData.Owner;
             },
             height: 455,
-            width: '90%',
+            width: '95%',
             sortable: true,
             filterable: true,
             selectable: true,
@@ -371,7 +385,7 @@ function getbikes(){
                         return  kendo.htmlEncode(fnGetBikeEnum(dataItem.BikeStatus));
                       },
                     width: 100
-                },  {
+                }, {
                     headerAttributes: {
                             style: "font-weight: bold; text-align:center; vertical-align:middle;"
                             },	
@@ -381,7 +395,19 @@ function getbikes(){
                     field: "WeiValue",
                     title: "Wei Value",
                     format: "{0:n0}",
-                    width: 180
+                    width: 100
+                }, {
+                    headerAttributes: {
+                            style: "font-weight: bold; text-align:center; vertical-align:middle;"
+                            },	
+                    attributes: {
+                            style: "font-weight: bold; text-align:left; vertical-align:middle;"
+                            },	
+                            template: " <input type='button' class='k-button info' name='info' value='...' />",
+                            
+                    title: "Details",
+
+                    width: 80
                 }
             ]
     });
@@ -448,4 +474,5 @@ function confirmOp(titulo, texto){
     $('#' + random).modal('show');
   
 }
+
 

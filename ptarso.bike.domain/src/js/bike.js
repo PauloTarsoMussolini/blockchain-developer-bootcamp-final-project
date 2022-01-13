@@ -9,7 +9,27 @@ $(function() {
     getbikes();
 });
 
+$('#btnIncluir').click(function() {
+    var myWindow = $("#wndOperacao");
 
+    myWindow.kendoWindow({
+        width: "900px",
+        maxHeight: 600,
+        position: {
+            top: 50,
+            left: "20%"
+        },
+        title: "Bike Detail",
+        visible: false,
+        modal: true,
+        resizable: false,
+        actions: [
+            "Close"
+        ]
+    
+    }).data("kendoWindow").open();
+    myWindow.data("kendoWindow").open();		  
+    });
 
 
 // function CreateBike(value) {

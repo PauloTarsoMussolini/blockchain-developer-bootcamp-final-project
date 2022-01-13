@@ -1,9 +1,9 @@
 $(function() {
     fnAnima('Administrators');
-    $('#btnConfirm').unbind('click').bind("click", ( () => {
+    $('#btnAdd').unbind('click').bind("click", ( () => {
             AddAdmin();
     }));
-    $('#btnConfirm').css("display","Add Admin");
+    $('#btnConfirm').css("display","block");
 
     getAdmins();
 });
@@ -73,12 +73,21 @@ function getBikeAdmins(){
 }
 
 function addAdmin(value) {
+    kendo.ui.progress($("#grdAdmins"), true);
+    $("#messageTx").css("display","block");
     contract.methods.addAdmin(value).send( {from: account}).then( (tx) => { 
       ModalDialog("addAdmin", "addAdmin sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
       document.getElementById('Admin').value = '';
+      let gridColor = $("#grdAdmins").data("kendoGrid");
+      let dataSource = gridColor.dataSource;
+      gridColor.dataSource.add({ Address:  value });
+    
+      setSelectedRow("grdBikeColor");
     }).catch( ( error ) =>{
       ModalDialog("addAdmin", "addAdmin ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
       console.log( "ERRO: ", error ); 
+      $("#messageTx").css("display","none");
+      $('#wndOperacao').css("display","none");
       }
     );
 }

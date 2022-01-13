@@ -134,13 +134,13 @@ contract AdminRole is Ownable {
 
     Roles.Role private _admins;
 
-    modifier onlyAdmin() {
-        require(
-            isAdmin(msg.sender),
-            "AdminRole: caller does not have the admin role"
-        );
-        _;
-    }
+    // modifier onlyAdmin() {
+    //     require(
+    //         isAdmin(msg.sender),
+    //         "Caller does not have the admin role"
+    //     );
+    //     _;
+    // }
 
     constructor()  {
         _internalAddAdmin(msg.sender);
@@ -170,7 +170,7 @@ contract AdminRole is Ownable {
     function _internalRemoveAdmin(address _account) internal {
         require(
             _account != msg.sender,
-            "AdminRole: caller can not renounce itself"
+            "Caller can not renounce itself"
         );
         _admins.remove(_account);
         emit AdminRemoved(_account);

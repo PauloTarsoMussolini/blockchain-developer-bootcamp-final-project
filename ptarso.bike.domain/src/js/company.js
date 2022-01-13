@@ -1,7 +1,7 @@
 $(function() {
     fnAnima('Companies');
-    $('#btnConfirm').unbind('click').bind("click", ( () => {
-            CreateCompany();
+    $('#btnAdd').unbind('click').bind("click", ( () => {
+            createCompany();
     }));
     $('#btnConfirm').css("display","Create Company");
 
@@ -9,13 +9,13 @@ $(function() {
 });
 
 $('#btnCompanyConfirm').bind("click", ( () => {
-        if(textValid($("#Company").val()))
-            CreateCompany($("#Company").val());
+        if(textValid($("#CompanyName").val()) && textValid($("#Addr").val()))
+            CreateCompany($("#Addr").val(), $("#CompanyName").val());
 }));
 
-CreateCompany = function(){
+createCompany = function(){
     $('#wndOperacao').css("display","block");
-    $('#Company').focus();
+    $('#CompanyName').focus();
 }
 
 $('#btnCompanyConfirm').click(function(){
@@ -137,16 +137,13 @@ function fnGetEnum(val){
     return (val == 0 ? "ACTIVE" : (val == 1 ? "INACTIVE": "BLOCKED"))
 }
 
-function CreateCompany(value) {
+function CreateCompany(addr, companyName) {
+    alert(companyName);
     kendo.ui.progress($("#grdBikeCompany"), true);
     $("#messageTx").css("display","block");
-    contract.methods.CreateCompany(value).send( {from: account}).then( (tx) => { 
+    contract.methods.createCompany(addr, companyName).send( {from: account}).then( (tx) => { 
       ModalDialog("CreateCompany", "CreateCompany sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
-      let grid = $("#grdBikeCompany").data("kendoGrid");
-      let dataSource = grid.dataSource;
-      grid.dataSource.add({ ColorId: dataSource.total(), Color: value });
-    
-      setSelectedRow("grdBikeCompany");
+      getCompanies();
     }).catch( ( error ) =>{
       ModalDialog("CreateCompany", "CreateCompany ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
       console.log( "ERRO: ", error ); 
@@ -154,6 +151,7 @@ function CreateCompany(value) {
     ).finally(() => {
         kendo.ui.progress($("#grdBikeCompany"), false);
         $("#messageTx").css("display","none");
-        document.getElementById('bikeType').value = '';
+        document.getElementById('CompanyName').value = '';
+        document.getElementById('Addr').value = '';
     });
 }

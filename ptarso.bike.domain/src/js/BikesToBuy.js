@@ -1,7 +1,7 @@
 $(function() {
     fnAnima('Bikes for Sale');
     $('#btnBuyConfirm').unbind('click').bind("click", ( () => {
-        ConfirmBuy();
+      BuyBike();
 }));
     $('#btnAdd').css("display","none");
     $('#btnBuyConfirm').css("display","block");
@@ -12,13 +12,24 @@ $(function() {
 
 });
 
-function BuyBike(id, value) {
-    contract.methods.buyBike(parseInt(id, value)).send( {from: account, value: parseInt(value) }).then( (tx) => { 
-      ModalDialog("CreateBike", "CreateBike sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
-      document.getElementById('bikeBike').value = '';
+
+function BuyBike() {
+
+  if (bikeOwner == account){
+    ModalDialog("BuyBike Error", "Can't Buy this Bike. Its Yours! <br /> <br />" );
+    return;
+  }
+  kendo.ui.progress($("#grdBike"), true);
+  $("#messageTx").css("display","block");
+    contract.methods.buyBike(parseInt(bikeId)).send( {from: account, value: parseInt(weiValue)}).then( (tx) => { 
+      ModalDialog("BuyBike", "Buy Bike sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
+      getbikes();
     }).catch( ( error ) =>{
-      ModalDialog("CreateBike", "CreateBike ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
-      console.log( "ERRO: ", error ); 
+      ModalDialog("BuyBike", "Buy Bike ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
+      console.log( "ERR: ", error ); 
       }
-    );
+    ).finally(() => {
+      kendo.ui.progress($("#grdBike"), false);
+      $("#messageTx").css("display","none");
+  });
 }

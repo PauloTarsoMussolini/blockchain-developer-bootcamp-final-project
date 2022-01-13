@@ -67,9 +67,7 @@ function getColors(){
 $('#btnBikeConfirm').bind("click", ( () => {
     $(".k-icon.k-i-refresh").hide();
     if(valueValid($("#weiValue").val()))
-    alert($("#bikeColor").val());
-
-    generateBike($("#bikeType").val(),$("#bikeColor").val(),$("#weiValue").val());
+        generateBike($("#bikeType").val(),$("#bikeColor").val(),$("#weiValue").val());
 }));
 
 
