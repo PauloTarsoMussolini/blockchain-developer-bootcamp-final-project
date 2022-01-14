@@ -125,7 +125,13 @@ function generateBike(bikeType, bikeColor, weiValue) {
         .on('confirmation', function(confirmationNumber, receipt) {
             console.log('confirmation', confirmationNumber);
         })
-        .on('error', console.error);
+        .on('error', function(error){
+            console.log(error.code)
+            $("#messageTx").css("display","none")
+            $('#wndOperacao').css("display","none")
+            kendo.ui.progress($("#grdBike"), false);
+            ModalDialog("generateBike Bike", "generateBike ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message )
+    })
 
 
 

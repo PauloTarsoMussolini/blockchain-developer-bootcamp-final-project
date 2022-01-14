@@ -63,7 +63,7 @@ function getMyBikes(){
                         var selectedRows = this.select();
                         var rowData = this.dataItem(selectedRows[0]);
                         
-                        $('#wndOperacao').css("display",(rowData.BikeStatus == 1 ? "block" : "none"));
+                        $('#wndOperacao').css("display",(rowData.BikeStatus != 3 & rowData.BikeStatus != 2 ? "block" : "none"));
                         bikeId = rowData.Id;
                         weiValue = rowData.WeiValue;
                 },
@@ -73,6 +73,7 @@ function getMyBikes(){
                 filterable: true,
                 selectable: true,
                 columnMenu: true,
+                dataBound: onDataBoundMyBike,
                 pageable: {
                         refresh: true,
                         pageSizes: true,
@@ -148,6 +149,14 @@ function getMyBikes(){
         });
 }
 
+function onDataBoundMyBike(evt){
+
+        $('.k-i-reload').bind("click", ( function(){
+                getMyBikes();
+          }
+        ));
+}
+
 // function ConfirmSell(){
 //       //  confirmOp("Confirm Sell", "Confirm selected Bike Sell?");
 
@@ -162,16 +171,40 @@ function getMyBikes(){
 function SellBike() {
         kendo.ui.progress($("#grdMyBike"), true);
         $("#messageTx").css("display","block");
-        contract.methods.putBikeToSell(bikeId,$("#weiValue").val()).send( {from: account}).then( (tx) => { 
-          ModalDialog("Sell Bike", "Bike set to Sell sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
-        }).catch( ( error ) =>{
-          ModalDialog("Sell Bike", "Bike set to Sell ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
-          console.log( "ERRO: ", error ); 
-          }
-        ).finally(() => {
+
+
+        contract.methods.putBikeToSell(bikeId,$("#weiValue").val()).send( {from: account})
+        .on('transactionHash', function(hash){
+            console.log('transactionHash: ',hash);
+            ModalDialog("Sell Bike", "Bike set to Sell transaction sucessful send to blockchain <br /> Wait for Metamask confirmation <br /> <br /> <br /> Transaction: " + hash );
             kendo.ui.progress($("#grdMyBike"), false);
             $("#messageTx").css("display","none");
-            $('#wndOperacao').css("display","none");
-            getMyBikes();
-        });
+        })
+        .on('receipt', function(receipt){
+            console.log('receipt');
+        })
+        .on('confirmation', function(confirmationNumber) {
+            console.log('confirmation', confirmationNumber);
+        })
+       .on('error', function(error){
+               console.log(error.code)
+               $("#messageTx").css("display","none")
+               $('#wndOperacao').css("display","none")
+               kendo.ui.progress($("#grdMyBike"), false);
+               ModalDialog("Sell Bike", "Bike set to Sell ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message )
+       })
+
+
+        // contract.methods.putBikeToSell(bikeId,$("#weiValue").val()).send( {from: account}).then( (tx) => { 
+        //   ModalDialog("Sell Bike", "Bike set to Sell sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
+        // }).catch( ( error ) =>{
+        //   ModalDialog("Sell Bike", "Bike set to Sell ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
+        //   console.log( "ERRO: ", error ); 
+        //   }
+        // ).finally(() => {
+        //     kendo.ui.progress($("#grdMyBike"), false);
+        //     $("#messageTx").css("display","none");
+        //     $('#wndOperacao').css("display","none");
+        //     getMyBikes();
+        // });
     }
