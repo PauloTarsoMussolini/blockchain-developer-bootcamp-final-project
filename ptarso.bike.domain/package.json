@@ -1,0 +1,11 @@
+{
+  "name": "ptarso.bike.domain",
+  "version": "1.0.0",
+  "description": "Consensys - Final Project - Front End",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paulo de Tarso F Mussolini",
+  "license": "ISC"
+}

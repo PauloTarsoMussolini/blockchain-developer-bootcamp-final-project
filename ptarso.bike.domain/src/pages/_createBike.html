@@ -1,0 +1,63 @@
+<html lang="pt-BR">
+	<style>
+		.form-control{
+			height:17px;
+		}
+		#wndOperacao table tr td{
+			border:none !important;
+			height:15px !important;
+		}
+		#wndOperacao #frmBike table td{
+			padding: 3px !important;
+		}		
+	</style>
+	<div id="wndOperacao" class="k-window-content" style="display:block">
+	
+		<section class="content" style="width:97%">
+
+				<div id="frmBike">
+					<table style="width:100%; border:none">
+						<colgroup>
+							<col width="20%"/>
+							<col width="60%"/>
+							<col width="20%"/>
+						</colgroup>
+						<body>
+							<tr>
+								<td>
+									<label>Type</label>
+								</td>
+								<td >
+										<input type="email" class="form-control" placeholder="Bike Type" style="width:89%;"/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label>Color</label>
+								</td>
+								<td >
+										<input type="email" class="form-control" placeholder="Descrição" style="width:89%;"/>
+								</td>
+								<td>
+							</tr>
+						</body>
+					</table>
+						
+				</div>
+									
+		
+		</section>
+	</div>
+
+	<script type="text/javascript">	
+		$(function() {
+			fnAnima('Bike Creation');
+			$('#btnConfirm').unbind('click').bind("click", ( () => {
+					getName();
+			}));
+
+
+			
+		});
+	</script>
+</html>

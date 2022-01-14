@@ -1,0 +1,189 @@
+{
+  "contractName": "ComapanyStatusEnum",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/enum/CompanyStatusEnum.sol\":\"ComapanyStatusEnum\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/enum/CompanyStatusEnum.sol\":{\"keccak256\":\"0x9fb88455cf1d6ee79a042188e0529e36c3e191a9d79ac69334a1a5164920b570\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://aac7998aab1c8f6c880eff61c423e2d8967a9ae3eca6989ba82b2cdbf23b24ea\",\"dweb:/ipfs/Qma8oMT8sueNjreoaR2ckFSbAsT5FiPg1kRD6MJYFTrNa8\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220d4f7168045e170be9ca7f59c1e6c738117255a60ab0a3cdb811fd2dc78391a5b64736f6c634300080a0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220d4f7168045e170be9ca7f59c1e6c738117255a60ab0a3cdb811fd2dc78391a5b64736f6c634300080a0033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "72:120:11:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "72:120:11:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.0 <0.9.0;\r\n\r\ncontract ComapanyStatusEnum {\r\n    enum CompanyStatus {\r\n        ACTIVE,\r\n        INACTIVE,\r\n        BLOCKED\r\n    }\r\n\r\n}",
+  "sourcePath": "/mnt/c/Users/ptars/Learn/Blockchain/Consensys/Bootcamp2021/Final Project/code/ptarso.bike.factory/contracts/enum/CompanyStatusEnum.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/enum/CompanyStatusEnum.sol",
+    "exportedSymbols": {
+      "ComapanyStatusEnum": [
+        1464
+      ]
+    },
+    "id": 1465,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1459,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:31:11"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ComapanyStatusEnum",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1464,
+        "linearizedBaseContracts": [
+          1464
+        ],
+        "name": "ComapanyStatusEnum",
+        "nameLocation": "81:18:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ComapanyStatusEnum.CompanyStatus",
+            "id": 1463,
+            "members": [
+              {
+                "id": 1460,
+                "name": "ACTIVE",
+                "nameLocation": "137:6:11",
+                "nodeType": "EnumValue",
+                "src": "137:6:11"
+              },
+              {
+                "id": 1461,
+                "name": "INACTIVE",
+                "nameLocation": "154:8:11",
+                "nodeType": "EnumValue",
+                "src": "154:8:11"
+              },
+              {
+                "id": 1462,
+                "name": "BLOCKED",
+                "nameLocation": "173:7:11",
+                "nodeType": "EnumValue",
+                "src": "173:7:11"
+              }
+            ],
+            "name": "CompanyStatus",
+            "nameLocation": "112:13:11",
+            "nodeType": "EnumDefinition",
+            "src": "107:80:11"
+          }
+        ],
+        "scope": 1465,
+        "src": "72:120:11",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:155:11"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/enum/CompanyStatusEnum.sol",
+    "exportedSymbols": {
+      "ComapanyStatusEnum": [
+        1464
+      ]
+    },
+    "id": 1465,
+    "license": "GPL-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1459,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".0",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:31:11"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ComapanyStatusEnum",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1464,
+        "linearizedBaseContracts": [
+          1464
+        ],
+        "name": "ComapanyStatusEnum",
+        "nameLocation": "81:18:11",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ComapanyStatusEnum.CompanyStatus",
+            "id": 1463,
+            "members": [
+              {
+                "id": 1460,
+                "name": "ACTIVE",
+                "nameLocation": "137:6:11",
+                "nodeType": "EnumValue",
+                "src": "137:6:11"
+              },
+              {
+                "id": 1461,
+                "name": "INACTIVE",
+                "nameLocation": "154:8:11",
+                "nodeType": "EnumValue",
+                "src": "154:8:11"
+              },
+              {
+                "id": 1462,
+                "name": "BLOCKED",
+                "nameLocation": "173:7:11",
+                "nodeType": "EnumValue",
+                "src": "173:7:11"
+              }
+            ],
+            "name": "CompanyStatus",
+            "nameLocation": "112:13:11",
+            "nodeType": "EnumDefinition",
+            "src": "107:80:11"
+          }
+        ],
+        "scope": 1465,
+        "src": "72:120:11",
+        "usedErrors": []
+      }
+    ],
+    "src": "37:155:11"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.10+commit.fc410830.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-01-08T16:55:30.425Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
