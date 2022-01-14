@@ -1,6 +1,6 @@
 $(function() {
     fnAnima('Bike Colors');
-    $('#btnConfirm').unbind('click').bind("click", ( () => {
+    $('#btnAdd').unbind('click').bind("click", ( () => {
             AddColor();
     }));
     $('#btnConfirm').css("display","block");

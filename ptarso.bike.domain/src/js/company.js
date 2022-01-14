@@ -28,8 +28,6 @@ getCompanys = async function(){
 function getCompanies(){
  
       contract.methods.getCompanyList().call().then( ( companies )=>  { 
-
-        console.log("companies = ", companies);
   
         const FIELD_NAME  = 0;
         const FIELD_STATUS = 1;
@@ -45,27 +43,6 @@ function getCompanies(){
             companyStructs.push(company)
         }
         
-        console.log('companyStructs =', companyStructs)    
-
-        // var Companies = [];
-        // for (var i = 0; i < companies.length; i++){
-
-        //     // var items = {};
-        //     // items["Company"]="Company";
-        //     // items["Status"]="Status";
-        //     // items["Exist"]="Exist";
-        //     // items["Address"]="Address";
-        //     // const jsonString = JSON.stringify(companies.assign({}, items)) 
-        //     // const json_obj = JSON.parse(jsonString);
-
-        //     // console.log(json_obj)
-        //     const array = ["Company", "Status", "Exist", "Address"]
-        //     const jsonString = JSON.stringify(Object.assign({companies}, array))
-        //     console.log(jsonString)
-
-        //     Companies.push({ "CompanyId": i, "Company": companies[i]},)
-        // }
-  
         var dataSourceCompany = new kendo.data.DataSource({
         data: companyStructs,
         pageSize: 10,
