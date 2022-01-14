@@ -35,13 +35,6 @@ contract("BikeFactory", accounts => {
     // });
     describe('Bike Generation', async () => {
         it('Generate Bike success', async () => {
-            // await contractInstance.addColor('White' , { from: ownerAddress });
-            // await contractInstance.addColor('Silver' , { from: ownerAddress });
-            // await contractInstance.addColor('Black' , { from: ownerAddress });
-            // await contractInstance.addType('Urban' , { from: ownerAddress });
-            // await contractInstance.addType('Montain' , { from: ownerAddress });
-            // await contractInstance.addType('Electric' , { from: ownerAddress });
-            // await contractInstance.addType('Electric' , { from: ownerAddress });
             await contractInstance.createCompany(ownerAddress, "CompanyName", { from: ownerAddress });
 
             const result =  await contractInstance.generateBike(Bike, { from: ownerAddress });
@@ -83,7 +76,98 @@ contract("BikeFactory", accounts => {
                 'Invalid Type!'
             );
         });
+    });
+    describe('Put Bike to Sell', async () => {
+        it('Should throw Sell Bike if sender is not bike Owner', async () => {
+            await contractInstance.createCompany(ownerAddress, "CompanyName", { from: ownerAddress });
+            const result =  await contractInstance.generateBike(Bike, { from: ownerAddress });
+
+            await Assert.reverts(
+                contractInstance.putBikeToSell(1, 12345, { from: addressOne }),
+                'Only Owners Bike can sell Bike'
+            );
+        });
+
+        it('Put bike to sell success', async () => {
+            await contractInstance.createCompany(ownerAddress, "CompanyName", { from: ownerAddress });
+            await contractInstance.generateBike(Bike, { from: ownerAddress });
+
+            const result = await contractInstance.putBikeToSell(1, 12345, { from: ownerAddress });
+
+            assert.equal(true, Boolean(result));
+            // Assert.eventEmitted(
+            //     result,
+            //     'BikePlacedToSell',
+            //     event =>
+            //         event.bike == 1);
+        });
+
+    });
+    describe('Buy Bike', async () => {
+        it('Should throw Buy Bike if sender is your own bike', async () => {
+            await contractInstance.createCompany(ownerAddress, "CompanyName", { from: ownerAddress });
+            await contractInstance.generateBike(Bike, { from: ownerAddress });
+            await contractInstance.putBikeToSell(1, 12345, { from: ownerAddress });
+
+            await Assert.reverts(
+                contractInstance.buyBike(1, { from: ownerAddress }),
+                'Owners Bike can not buy your Bike'
+            );
+        });
+        it('Should throw Buy Bike if bike is not for sell', async () => {
+            await contractInstance.createCompany(ownerAddress, "CompanyName", { from: ownerAddress });
+            await contractInstance.generateBike(Bike, { from: ownerAddress });
+
+            await Assert.reverts(
+                contractInstance.buyBike(1, { from: addressOne }),
+                'Bike not for Sell'
+            );
+        });
+        it('Buy Bike Success', async () => {
+            await contractInstance.createCompany(ownerAddress, "CompanyName", { from: ownerAddress });
+            await contractInstance.generateBike(Bike, { from: ownerAddress });
+            await contractInstance.putBikeToSell(1, 12345, { from: ownerAddress });
+            const result = await contractInstance.buyBike(1, { from: addressOne, value: 12345 });
+            Assert.eventEmitted(
+                result,
+                'TransferedBike',
+                event =>
+                    event.to === addressOne);
+
+        });
+    });
+        describe('Bike Color and Type', async () => {
         
+        it('Shoud throw Add Color if sender is not Owner', async () => {
+            await Assert.reverts(
+                contractInstance.addColor('New Color', { from: addressOne }),
+                'Caller is not the owner'
+            );
+
+        });
+        it('Add Color Successfuly', async () => {
+            const result = await contractInstance.addColor('New Color', { from: ownerAddress });
+            Assert.eventEmitted(
+                result,
+                'AddedBikeColor',
+                event =>
+                    event.color === 'New Color');
+        });
+        it('Shoud throw Add Type if sender is not Owner', async () => {
+            await Assert.reverts(
+                contractInstance.addType('New Type', { from: addressOne }),
+                'Caller is not the owner'
+            );
+
+        });
+        it('Add Type Successfuly', async () => {
+            const result = await contractInstance.addType('New Type', { from: ownerAddress });
+            Assert.eventEmitted(
+                result,
+                'AddedBikeType',
+                event =>
+                    event._type === 'New Type');
+        });
     });
 
         // it('generate Bike success', async () => {

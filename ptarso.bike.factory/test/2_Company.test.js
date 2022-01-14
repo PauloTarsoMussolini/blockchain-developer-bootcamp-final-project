@@ -39,7 +39,7 @@ contract("Company", accounts => {
         it('Should throw if send is not Admin', async () => {
             await Assert.reverts(
                 contractInstance.createCompany(ownerAddress, "CompanyName", { from: addressOne }),
-                'Ownable: caller is not the owner'
+                'Caller is not the owner'
             );
         })
 

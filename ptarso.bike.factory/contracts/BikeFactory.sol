@@ -30,7 +30,10 @@ AdminRole,
     address[] private _bikeForSell;
 
     event BikeGenerated(
-        address indexed instancecAddress
+        address indexed instanceAddress
+    );
+    event BikePlacedToSell(
+        uint256 indexed bikeId
     );
     event TransferedBike(
         address indexed bike,
@@ -189,9 +192,11 @@ AdminRole,
     function putBikeToSell(uint id, uint weiValue) public returns (bool result){
         require(
             _bikeInstanceMap[id].instanceAddressOwner == msg.sender, 
-            "Only Owner's Bike can sell Bike"
+            "Only Owners Bike can sell Bike"
             );
         _bikeForSell.push(_bikeInstanceMap[id].instanceAddress);
+        emit BikePlacedToSell(id);
+        
         return getBase(_bikeInstanceMap[id].instanceAddress).setBikeStatus(StatusBikeEnum.FOR_SALE, weiValue);
 
     }
@@ -265,7 +270,7 @@ function getBikeListByOwner() public view
         address _to = _bikeInstanceMap[id].instanceAddressOwner; 
         require(
             _to != msg.sender, 
-            "Owner's Bike can not buy your Bike"
+            "Owners Bike can not buy your Bike"
         );
 
         require(

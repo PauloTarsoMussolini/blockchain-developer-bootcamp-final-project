@@ -10,7 +10,7 @@ contract Ownable {
   }
 
   modifier onlyOwner() {
-    require(isOwner(), 'Ownable: caller is not the owner');
+    require(isOwner(), 'Caller is not the owner');
     _;
   }
 
@@ -583,7 +583,7 @@ AdminRole,
     function putBikeToSell(uint id, uint weiValue) public returns (bool result){
         require(
             _bikeInstanceMap[id].instanceAddressOwner == msg.sender, 
-            "Only Owner's Bike can sell Bike"
+            "Only Owners Bike can sell Bike"
             );
         _bikeForSell.push(_bikeInstanceMap[id].instanceAddress);
        // _bikeForSellCounter++;
@@ -621,7 +621,7 @@ AdminRole,
         address _to = _bikeInstanceMap[id].instanceAddressOwner; 
         require(
             _to != msg.sender, 
-            "Owner's Bike can not buy your Bike"
+            "Owners Bike can not buy your Bike"
         );
 
         require(
