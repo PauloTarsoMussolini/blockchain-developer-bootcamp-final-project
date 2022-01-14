@@ -19,8 +19,6 @@ function getMyBikes(){
  
     contract.methods.getBikeListByOwner().call({from: account}).then( ( bikes )=>  { 
 
-        console.log("Bikes = ", bikes);
-        
         const FIELD_ID  = 0;
         const FIELD_OWNER = 1;
         const FIELD_BIKE_TYPE = 2;
@@ -41,8 +39,6 @@ function getMyBikes(){
                 }
                 BikeStructs.push(Bike)
         }
-        
-        console.log('BikeStructs =', BikeStructs)    
         
         var dataSourceMyBike = new kendo.data.DataSource({
         data: BikeStructs,

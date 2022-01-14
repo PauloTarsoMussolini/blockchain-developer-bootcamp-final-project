@@ -8,6 +8,7 @@ $(function() {
 
     getTypes();
     getColors();
+    getbikes(false);
 // const typeList = contract.methods.getBikeTypeList().call();
 // console.log(typeList);
 
@@ -26,7 +27,8 @@ $(function() {
 //             }
 //         }
 //     }).data("kendoDropDownList");
-
+// $(".k-pager-refresh").click(alert("oi"));
+// $('.k-i-refresh').click( alert("oioi"));
 
 });
 
@@ -71,10 +73,9 @@ $('#btnBikeConfirm').bind("click", ( () => {
 }));
 
 
-getbikes(false);
+
 
 function fnGetBikeEnum(val){
-    console.log(val);
     var ret;
     switch (val) {
         case "0":
@@ -100,63 +101,47 @@ function fnGetBikeEnum(val){
 }
 
 AddBike = function(){
-    // Recuperar tipos
-    // Recuperar cores
-    // [0,3,3,777]
     $('#wndOperacao').css("display","block");
     $('#bikeType').focus();
 }
 
-// function CreateBike(bikeType, bikeColor, weiValue) {
-
-//     kendo.ui.progress($("#grdBike"), true);
-//     $("#messageTx").css("display","block");
-
-
-//     // contract.methods.generateBike([0,parseInt(bikeType),parseInt(bikeColor),parseInt(weiValue)]).send({from: account}, function(error, transactionHash){
-//     //     console.log("Criou BIKE");
-//     //     ModalDialog("generateBike", "generateBike sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
-//     // });
-
-
-
-
-
-//     contract.methods.generateBike([0,parseInt(bikeType),parseInt(bikeColor),parseInt(weiValue)]).send({from: account}).then( (tx) => { 
-//         console.log("Criou BIKE");
-//       ModalDialog("generateBike", "generateBike sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
-//    //   let gridBike = $("#grdBike").data("kendoGrid");
-//    //   let dataSource = gridBike.dataSource;
-//     ////  gridBike.dataSource.add({ Id: dataSource.total(), Owner: "12345", BikeType: "Urban", BikeColor: "White", BikeStatus: "NEW", WeiValue: 76543 });
-//     //  setSelectedRow("grdBike");
-//     }).catch( ( error ) =>{
-//       ModalDialog("generateBike", "generateBike ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
-//       console.log( "ERRO: ", error ); 
-//       }
-//     ).finally(() => {
-//         kendo.ui.progress($("#grdBike"), false);
-//         $("#messageTx").css("display","none");
-//       //  document.getElementById('bikeType').value = '';
-//     });
-// }
 
 function generateBike(bikeType, bikeColor, weiValue) {
     
     kendo.ui.progress($("#grdBike"), true);
     $("#messageTx").css("display","block");
-     
-    contract.methods.generateBike([0,parseInt(bikeType),parseInt(bikeColor),parseInt(weiValue)])
-    .send({from: account})
-    .then( (tx) => { 
-        console.log("Criou BIKE");
-      ModalDialog("generateBike", "generateBike sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
-    }).catch( ( error ) =>{
-      ModalDialog("generateBike", "generateBike ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
-      console.log( "ERRO: ", error ); 
-      }
-    ).finally(() => {
-        kendo.ui.progress($("#grdBike"), false);
-        $("#messageTx").css("display","none");
-    });
+
+
+    contract.methods.generateBike([0,parseInt(bikeType),parseInt(bikeColor),parseInt(weiValue)]).send({from: account})
+        .on('transactionHash', function(hash){
+            console.log('transactionHash: ',hash);
+            ModalDialog("generateBike", "generateBike transaction sucessful send to blockchain <br /> Wait for Metamask confirmation <br /> <br /> <br /> Transaction: " + hash );
+            kendo.ui.progress($("#grdBike"), false);
+            $("#messageTx").css("display","none");
+        })
+        .on('receipt', function(receipt){
+            console.log('receipt');
+        })
+        .on('confirmation', function(confirmationNumber, receipt) {
+            console.log('confirmation', confirmationNumber);
+        })
+        .on('error', console.error);
+
+
+
+    
+    // contract.methods.generateBike([0,parseInt(bikeType),parseInt(bikeColor),parseInt(weiValue)])
+    // .send({from: account}).then( (tx) => { 
+
+    //   ModalDialog("generateBike", "generateBike sucessful! <br /> <br /> Transaction: " + tx.transactionHash );
+    // }).catch( ( error ) =>{
+    //   ModalDialog("generateBike", "generateBike ERROR! <br /> <br /> Code:" + error.code + "<br />" + error.message );
+    //   console.log( "ERRO: ", error ); 
+    //   }
+    // ).finally(() => {
+    //     kendo.ui.progress($("#grdBike"), false);
+    //     $("#messageTx").css("display","none");
+    // });
+
 
 }

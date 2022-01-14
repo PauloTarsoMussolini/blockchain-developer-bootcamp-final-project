@@ -527,20 +527,9 @@ AdminRole,
         return companyModelList;
     }
 
-
-
-    // function getAll() public view returns (CompanyModelStruct[] memory){
-    //     CompanyModelStruct[] memory ret = new CompanyModelStruct[](_companyAddresses.length);
-    //     for (uint i = 0; i < _companyAddresses.length; i++) {
-    //         ret[i] = _companyMap[_companyAddresses[i]];
-    //     }
-    //     return ret;
-    // }
-
     function generateBike(BikeModelStruct memory bikeModel) 
     public
          onlyAdmin
-        //  onlyWhitelisted(msg.sender)
     {
         require(hasType(bikeModel.TypeId) == true, "Invalid Type!");
         require(hasColorId(bikeModel.ColorId) == true, "Invalid Color!");
