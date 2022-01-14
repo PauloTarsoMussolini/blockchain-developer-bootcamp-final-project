@@ -1,5 +1,5 @@
 # Consensys BootCamp 2021
-Final project Idea for Consensys BootCamp 2021
+## _Final project for Consensys BootCamp 2021_
 
 ## Bike 
 ### Smart Contract to control generate Bikes and Sell / Buy
@@ -19,36 +19,33 @@ pride struggle rail nominee hurdle tube august sample ginger game custom void
 Address: 0xc283F4D4C8e0a8515FdE1E18C53D2B0Bc5F0c421
 
 
-#About the project
+## About the project
 
 #Objective
 This projects demostrate a bike factory and a bike generation.
 Also is possible sell and buy a bike.
 
-#Clone
+## Clone
+```sh
 https://github.com/PauloTarsoMussolini/blockchain-developer-bootcamp-final-project
 
 npm install
-
-#Truffle test
-
+```
+## Truffle test
+```sh
 cd blockchain-developer-bootcamp-final-project/ptarso.bike.factory/
 npm install
 
 truffle develop
-
+```
 in other window:
+```sh
 cd blockchain-developer-bootcamp-final-project/ptarso.bike.factory/
 
 truffle test
+```
 
-
-
-#Test
-
-
-
-#Techlologies
+### Techlologies
 Solidity 8.10
 Jquery
 Boostrap
