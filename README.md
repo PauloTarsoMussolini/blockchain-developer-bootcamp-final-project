@@ -15,7 +15,7 @@ Anyone can buy Bike as long as they have the value of the Bike
 
 
 Seed Phrase for Contract's Owner
-pride struggle rail nominee hurdle tube august sample ginger game custom void   
+## _pride struggle rail nominee hurdle tube august sample ginger game custom void_
 Address: 0xc283F4D4C8e0a8515FdE1E18C53D2B0Bc5F0c421
 
 
