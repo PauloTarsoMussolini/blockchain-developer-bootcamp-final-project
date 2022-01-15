@@ -15,7 +15,7 @@ Anyone can buy Bike as long as they have the value of the Bike
 
 
 Seed Phrase for Contract's Owner
-pride struggle rail nominee hurdle tube august sample ginger game custom void   
+## _pride struggle rail nominee hurdle tube august sample ginger game custom void_
 Address: 0xc283F4D4C8e0a8515FdE1E18C53D2B0Bc5F0c421
 
 
@@ -43,6 +43,19 @@ in other window:
 cd blockchain-developer-bootcamp-final-project/ptarso.bike.factory/
 
 truffle test
+```
+
+Deployed site
+
+https://paulotarsomussolini.netlify.app/ptarso.bike.domain/src/index.html#
+
+## Network
+
+## _Rinkeby_
+
+## Contract Address
+```sh
+0xE9F012ee12C87fe20895Cb976013d607B979A0ec
 ```
 
 ### Techlologies
