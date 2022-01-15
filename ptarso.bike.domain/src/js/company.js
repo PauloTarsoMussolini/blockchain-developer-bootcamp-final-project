@@ -115,7 +115,6 @@ function fnGetEnum(val){
 }
 
 function CreateCompany(addr, companyName) {
-    alert(companyName);
     kendo.ui.progress($("#grdBikeCompany"), true);
     $("#messageTx").css("display","block");
     contract.methods.createCompany(addr, companyName).send( {from: account}).then( (tx) => { 
