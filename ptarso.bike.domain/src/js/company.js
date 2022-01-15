@@ -3,7 +3,7 @@ $(function() {
     $('#btnAdd').unbind('click').bind("click", ( () => {
             createCompany();
     }));
-    $('#btnConfirm').css("display","Create Company");
+    $('#btnAdd').css("display","Create Company");
 
     getCompanys();
 });

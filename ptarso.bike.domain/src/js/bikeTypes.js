@@ -3,7 +3,7 @@ $(function() {
     $('#btnAdd').unbind('click').bind("click", ( () => {
             AddType();
     }));
-    $('#btnConfirm').css("display","block");
+    $('#btnAdd').css("display","block");
 
     getTypes();
 });
