@@ -45,6 +45,12 @@ cd blockchain-developer-bootcamp-final-project/ptarso.bike.factory/
 truffle test
 ```
 
+Deployed site
+
+https://paulotarsomussolini.netlify.app/ptarso.bike.domain/src/index.html#
+
+
+
 ### Techlologies
 Solidity 8.10
 Jquery
