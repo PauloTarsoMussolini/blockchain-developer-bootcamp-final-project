@@ -18,12 +18,12 @@ $(function() {
     // Busca contas
     web3.eth.getAccounts(function(err, accs) {
         if (err != null) {
-            alert("Ocorreu um erro ao buscar suas contas.");
+            alert("Get accounts error");
             return;
         }
     
         if (accs.length == 0) {
-            alert("Nenhuma conta encontrada! Verifique se o Ethereum client está configurado corretamente.");
+            alert("No account found! Verify if your Ethereum client is setup.");
             return;
         }
     
