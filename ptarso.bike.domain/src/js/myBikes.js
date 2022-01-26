@@ -15,9 +15,11 @@ $(function() {
 });
 
 
-function getMyBikes(){
- 
-    contract.methods.getBikeListByOwner().call({from: account}).then( ( bikes )=>  { 
+async function getMyBikes(){
+ if (account == 0) 
+        await getAccounts();
+
+    await contract.methods.getBikeListByOwner().call({from: account}).then( ( bikes )=>  { 
 
         const FIELD_ID  = 0;
         const FIELD_OWNER = 1;
